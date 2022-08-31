@@ -1,0 +1,24 @@
+/gradle/
+/.gradle/
+/.idea/
+/build/
+/local.properties
+# Keystore files
+*.jks
+*.keystore
+# Android Profiling
+*.hprof
+# IntelliJ
+*.iml
+# Android Studio generated files and folders
+captures/
+.externalNativeBuild/
+.cxx/
+*.apk
+output.json
+# Log/OS Files
+*.log
+*.DS_Store
+app/.DS_Store
+app/src/.DS_Store
+
