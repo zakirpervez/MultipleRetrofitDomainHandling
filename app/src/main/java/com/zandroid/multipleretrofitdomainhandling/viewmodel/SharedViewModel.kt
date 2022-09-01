@@ -22,7 +22,6 @@ class SharedViewModel @Inject constructor(private val repository: Repository): V
     private val helloMutableData: MutableLiveData<ResponseBody> = MutableLiveData()
     val helloLiveData: LiveData<ResponseBody> = helloMutableData
 
-
     fun getTodoListFromJsonPlaceHolder() = viewModelScope.launch(Dispatchers.IO) {
         try {
             loadingMutableLiveData.postValue(true)
