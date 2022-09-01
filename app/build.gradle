@@ -19,9 +19,17 @@ android {
     }
 
     buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField 'String', 'JSON_PLACE_HOLDER_BASE_URL', '"'+ JSON_PLACE_HOLDER_BASE_URL +'"'
+            buildConfigField 'String', 'MOCK_BASE_URL', '"'+ MOCK_BASE_URL +'"'
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField 'String', 'JSON_PLACE_HOLDER_BASE_URL', '"'+ JSON_PLACE_HOLDER_BASE_URL +'"'
+            buildConfigField 'String', 'MOCK_BASE_URL', '"'+ MOCK_BASE_URL +'"'
         }
     }
     compileOptions {
@@ -31,10 +39,8 @@ android {
     kotlinOptions {
         jvmTarget = '11'
     }
-    packagingOptions {
-        pickFirst 'lib/armeabi-v7a/libassmidi.so'
-        pickFirst 'lib/x86/libassmidi.so'
-        exclude 'META-INF/DEPENDENCIES'
+    buildFeatures {
+        dataBinding true
     }
 }
 
@@ -55,6 +61,6 @@ dependencies {
     implementation('androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1')
     implementation('androidx.lifecycle:lifecycle-livedata-ktx:2.5.1')
 
-    implementation('com.google.dagger:hilt-android:2.38.1')
-    kapt("com.google.dagger:hilt-compiler:2.38.1")
+    implementation('com.google.dagger:hilt-android:2.42')
+    kapt("com.google.dagger:hilt-compiler:2.42")
 }
