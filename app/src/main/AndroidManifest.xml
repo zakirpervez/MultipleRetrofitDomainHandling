@@ -3,7 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.zandroid.multipleretrofitdomainhandling">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
+        android:name=".MultiDomainApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -11,9 +14,11 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:name=".MultiDomainApp"
         android:theme="@style/Theme.MultipleRetrofitDomainHandling"
-        tools:targetApi="31">
+        tools:targetApi="33">
+        <activity
+            android:name=".ui.ApiActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.MainActivity"
             android:exported="true">

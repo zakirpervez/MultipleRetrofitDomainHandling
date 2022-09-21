@@ -5,7 +5,6 @@ import com.zandroid.multipleretrofitdomainhandling.api.SafeApi
 import javax.inject.Inject
 import javax.inject.Singleton
 
-@Singleton
 class ApiDataSource @Inject constructor(private val restService: RestService): SafeApi() {
     @Throws(Exception::class)
     suspend fun getTodoListFromJsonPlaceHolder() = execute {

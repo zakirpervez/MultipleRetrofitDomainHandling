@@ -5,13 +5,12 @@ import javax.inject.Singleton
 
 @Singleton
 class DomainHelper @Inject constructor(){
-    private val environment = ApiEnvironment<Domain>(JsonPlaceHolderDomain())
-    val baseUrl = environment.getEnvironment().url
+    var selectedDomain: Domain = JsonPlaceHolderDomain()
     fun changeBaseUrl(domainType: DomainType) {
-        if (domainType == DomainType.MOCK) {
-            environment.setEnvironment(MockDomain())
+        selectedDomain = if (domainType == DomainType.MOCK) {
+           MockDomain()
         } else {
-            environment.setEnvironment(JsonPlaceHolderDomain())
+            JsonPlaceHolderDomain()
         }
     }
 }

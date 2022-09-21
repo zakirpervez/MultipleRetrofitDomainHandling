@@ -37,7 +37,7 @@ class RestModule {
         .apply {
             client(okHttpClient)
             addConverterFactory(GsonConverterFactory.create())
-            baseUrl(helper.baseUrl)
+            baseUrl(helper.selectedDomain.url)
         }
         .build()
 
